@@ -9,3 +9,5 @@ export default async function DashboardViewPage({ params }: { params: Promise<{ 
   const { view } = await params;
   return <ExactPortal defaultView={view || "dashboard"} />;
 }
+
+

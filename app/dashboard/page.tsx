@@ -8,3 +8,5 @@ export const metadata = {
 export default function DashboardPage() {
   return <ExactPortal defaultView="dashboard" />;
 }
+
+
