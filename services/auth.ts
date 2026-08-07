@@ -4,7 +4,7 @@ import type { Role, User } from "@/types";
 export interface LoginPayload {
   username: string;
   password: string;
-  role: Role;
+  role?: Role;
   otp?: string;
 }
 
@@ -16,15 +16,16 @@ interface LoginResponseData {
   accessToken: string;
   refreshToken: string;
   username?: string;
+  avatar?: string;
   linkedStudentIds?: string[];
   homeroom?: string;
   designation?: string;
   user?: Partial<LoginResponseData>;
 }
 
-function normalizeRole(role: Role): string {
+function normalizeRole(role?: Role): string {
   if (role === "daycareadmin") return "daycare_admin";
-  return role;
+  return role || "admin";
 }
 
 function normalizeBackendRole(role: unknown): Role {

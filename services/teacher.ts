@@ -29,7 +29,7 @@ export function mapTeacher(row: Record<string, unknown>): Teacher {
 export function useTeachers() {
   return useResourceList<Record<string, unknown>, Teacher[]>(queryKeys.teachers, "/teachers", {
     params: { page: 1, limit: 10 },
-    select: (items) => items?.map(mapTeacher) ?? undefined
+    select: (items) => items?.map(mapTeacher) ?? []
   });
 }
 

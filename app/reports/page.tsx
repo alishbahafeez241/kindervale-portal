@@ -16,7 +16,7 @@ export default function ReportsPage() {
       {reportsQuery.isLoading || studentsQuery.isLoading ? <LoadingState label="Loading reports..." /> : reportsQuery.error ? <ErrorState error={reportsQuery.error} /> : studentsQuery.error ? <ErrorState error={studentsQuery.error} /> : reports.length ? (
       <div className="grid gap-4 md:grid-cols-2">
         {reports.map((report) => {
-          const student = studentsQuery.data.find((item) => item.id === report.studentId);
+          const student = studentsQuery.data?.find((item) => item.id === report.studentId);
           return (
             <Card key={report.id}>
               <h2 className="text-lg font-black text-brand-navy">{student?.name ?? report.studentId}</h2>

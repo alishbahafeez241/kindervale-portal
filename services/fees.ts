@@ -23,7 +23,8 @@ export function mapFee(row: Record<string, unknown>): Fee {
 
 export function useFees() {
   return useResourceList<Record<string, unknown>, Fee[]>(queryKeys.fees, "/fees", {
-    select: (items) => items?.map(mapFee) ?? undefined
+    params: { page: 1, limit: 10 },
+    select: (items) => items?.map(mapFee) ?? []
   });
 }
 

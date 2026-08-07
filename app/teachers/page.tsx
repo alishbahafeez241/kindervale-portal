@@ -8,7 +8,7 @@ import { useTeachers } from "@/services/teacher";
 import type { Teacher } from "@/types";
 
 export default function TeachersPage() {
-  const { data: teachers, isLoading, error } = useTeachers();
+  const { data: teachers = [], isLoading, error } = useTeachers();
 
   return (
     <ProtectedShell title="Teachers">

@@ -17,7 +17,7 @@ export default function AttendancePage() {
         <Card>
           <h2 className="mb-4 text-lg font-black text-brand-navy">Student Attendance</h2>
           <div className="space-y-3">
-            {studentsQuery.data.length ? studentsQuery.data.map((student) => (
+            {studentsQuery.data?.length ? studentsQuery.data.map((student) => (
               <div key={student.id} className="flex items-center justify-between rounded-lg bg-slate-50 p-3">
                 <span className="font-bold">{student.name}</span>
                 <span className="font-black text-brand-navy">{student.attendance}%</span>
@@ -28,7 +28,7 @@ export default function AttendancePage() {
         <Card>
           <h2 className="mb-4 text-lg font-black text-brand-navy">Staff Attendance</h2>
           <div className="space-y-3">
-            {teachersQuery.data.length ? teachersQuery.data.map((teacher) => (
+            {teachersQuery.data?.length ? teachersQuery.data.map((teacher) => (
               <div key={teacher.id} className="flex items-center justify-between rounded-lg bg-slate-50 p-3">
                 <span className="font-bold">{teacher.name}</span>
                 <span className="font-black text-brand-navy">{teacher.attendance}</span>

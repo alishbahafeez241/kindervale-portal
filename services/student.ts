@@ -34,7 +34,7 @@ export function mapStudent(row: Record<string, unknown>): Student {
 export function useStudents() {
   return useResourceList<Record<string, unknown>, Student[]>(queryKeys.students, "/students", {
     params: { page: 1, limit: 10 },
-    select: (items) => items?.map(mapStudent) ?? undefined
+    select: (items) => items?.map(mapStudent) ?? []
   });
 }
 

@@ -17,7 +17,7 @@ export function mapParent(row: Record<string, unknown>): Parent {
 export function useParents() {
   return useResourceList<Record<string, unknown>, Parent[]>(queryKeys.parents, "/parents", {
     params: { page: 1, limit: 10 },
-    select: (items) => items?.map(mapParent) ?? undefined
+    select: (items) => items?.map(mapParent) ?? []
   });
 }
 

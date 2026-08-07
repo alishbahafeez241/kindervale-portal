@@ -27,7 +27,7 @@ export function mapAttendance(row: Record<string, unknown>): Attendance {
 export function useAttendance() {
   return useResourceList<Record<string, unknown>, Attendance[]>(queryKeys.attendance, "/attendance", {
     params: { page: 1, limit: 10 },
-    select: (items) => items?.map(mapAttendance) ?? undefined
+    select: (items) => items?.map(mapAttendance) ?? []
   });
 }
 

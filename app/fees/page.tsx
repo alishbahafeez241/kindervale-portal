@@ -12,13 +12,13 @@ import { money, prettyDate } from "@/utils/format";
 export default function FeesPage() {
   const feesQuery = useFees();
   const studentsQuery = useStudents();
-  const students = studentsQuery.data;
+  const students = studentsQuery.data ?? [];
 
   return (
     <ProtectedShell title="Fees">
       {feesQuery.isLoading || studentsQuery.isLoading ? <LoadingState label="Loading fees..." /> : feesQuery.error ? <ErrorState error={feesQuery.error} /> : studentsQuery.error ? <ErrorState error={studentsQuery.error} /> : (
       <DataTable<Fee>
-        data={feesQuery.data}
+        data={feesQuery.data ?? []}
         columns={[
           { key: "invoice", label: "Invoice" },
           { key: "studentId", label: "Student", render: (row) => students.find((student) => student.id === row.studentId)?.name ?? row.studentId },
